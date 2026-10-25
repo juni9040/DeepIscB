@@ -206,11 +206,10 @@ def final_prediction(fold, feature_dim, hidden_dim, drop):
     y_pred = torch.Tensor(y_pred).mean(dim=2)
     y_true = torch.Tensor(y_true).mean(dim=2)
     
-    output_df1 = pd.DataFrame(list(test_set['context']))
-    output_df2 = pd.DataFrame(y_true, columns=['en_true','enO_true','lfc_true']).drop(['lfc_true'], axis=1)
-    output_df3 = pd.DataFrame(y_pred, columns=['en_pred','enO_pred','lfc_pred']).drop(['lfc_pred'], axis=1)
+    output_df1 = pd.DataFrame(list(test_set['context']), columns=['context'])
+    output_df2 = pd.DataFrame(y_pred, columns=['enIscB_score','enOgeuIscB_score','lfc_pred']).drop(['lfc_pred'], axis=1)
 
-    pd.concat([output_df1,output_df2,output_df3], axis=1).to_csv(output_file)
+    pd.concat([output_df1,output_df2], axis=1).to_csv(output_file, index=False)
 
 
 final_prediction(fold=5, feature_dim=128, hidden_dim=128, drop=0.3)
