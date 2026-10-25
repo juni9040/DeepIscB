@@ -57,8 +57,8 @@ The output CSV holds the input sequence alongside the ensemble prediction:
 | Column | Description |
 | --- | --- |
 | `context` | The input target sequence |
-| `enIscB_score` | Predicted editing efficiency for enIscB |
-| `enOgeuIscB_score` | Predicted editing efficiency for enOgeuIscB |
+| `enIscB_score` | Predicted editing efficiency for enIscB, in percent |
+| `enOgeuIscB_score` | Predicted editing efficiency for enOgeuIscB, in percent |
 
 See `example_output.csv` for a complete example.
 
